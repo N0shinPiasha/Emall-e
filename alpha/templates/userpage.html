@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- site metas -->
+    <title>User Dashboard</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- custom styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header_section_top {
+            background-color: #343a40;
+            padding: 10px 0;
+            color: #fff;
+        }
+        .header_section_top h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .custom_menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .custom_menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .custom_menu ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .custom_menu ul li:last-child {
+            margin-right: 0;
+        }
+        .custom_menu ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .dashboard_container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start; /* Align items to the start */
+            margin-top: 30px;
+            flex-direction: row; /* Display containers horizontally */
+        }
+        .dashboard_item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(33.33% - 20px); /* Adjust the width of each item as needed */
+            margin-bottom: 10px; /* Reduced margin bottom */
+        }
+        .dashboard_item a {
+            display: block;
+            padding: 20px; /* Add padding to the anchor tags */
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            background-color: #f26522;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dashboard_item h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ user.username }}'s Dashboard</h1>
+        <div class="dashboard_container">
+            <div class="dashboard_item">
+                <a href="{% url 'index' %}" class="logout_button">Home</a>
+            </div>
+            <div class="dashboard_item">
+                <a href="/orders" class="logout_button">Purchase history</a>
+            </div>
+            <div class="dashboard_item">
+                <a href="../wishlist" class="logout_button">Wishlist</a>
+            </div>
+            <div class="dashboard_item">
+                <a href="{% url 'edit_user_details' %}" class="logout_button">Edit User Details</a>
+            </div>
+            
+            <div class="dashboard_item">
+                <a href="{% url 'forgot_password' %}" class="logout_button">Change Password</a>
+            </div>
+            <div class="dashboard_item">
+                <a href="{% url 'delete_user' %}" class="logout_button">Delete Account</a>
+            </div>
+            <div class="dashboard_item">
+                <a href="{% url 'logout' %}" class="logout_button">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
